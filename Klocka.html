@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+        <title>Klocka</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="Klocka.css" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <script src="main.js"></script>
+<head>
+    <script>
+    function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('ett').innerHTML = h;
+    document.getElementById('tva').innerHTML = m;
+    document.getElementById('tre').innerHTML = s;
+    
+    var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+    if (i < 10) {i = "0" + i}; return i;
+    }
+    </script>
+    </head>
+
+    <body onload="startTime()">
+
+            <div class="flex-container">
+                    <div id ="timme"><p class="siffra" id="ett"></p></div>
+                    <div id ="minut"><p class="siffra" id="tva"></p></div>
+                    <div id ="sekund"><p class="siffra" id="tre"></p></div>
+                  </div>
+
+    <div id ="txt">
+    </div>
+   
+    </body>
+    </html>

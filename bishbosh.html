@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BishBosh</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="bishbosh.css" />
+    
+    
+</head>
+
+
+
+<body onload="bishbosh()">
+
+
+         <p>  Nummer 0 - 50 :</p>
+      <input type="range" placeholder="Select range" id="send1" min="0" max="50" value="15" oninput="bishbosh()">
+      <p id="demo1"></p>
+      
+    
+
+    <br>
+
+      <p>  Bish-nummer :</p>
+    <input type="range" placeholder="Select range" id="send2" min="0" max="50" value="4" oninput="bishbosh()">
+    <p id="demo2"></p>
+   
+    
+
+<br>
+
+<p>  Bosh-nummer  :</p>
+<input type="range" placeholder="Select range" id="send3" min="0" max="50" value="3" oninput="bishbosh()">
+<p id="demo3"></p>
+
+<br><br>
+
+
+
+
+<p id="result"></p>
+
+
+
+
+
+<script>
+   
+        function bishbosh(){
+            document.getElementById("result").innerHTML="";
+
+        var tal1 = parseInt(document.getElementById("send1").value);
+        var tal2 = parseInt(document.getElementById("send2").value);
+        var tal3 = parseInt(document.getElementById("send3").value);
+
+        
+        document.getElementById("demo1").innerHTML=tal1;
+        document.getElementById("demo2").innerHTML=tal2;
+        document.getElementById("demo3").innerHTML=tal3;
+
+
+        var result ="";
+for(var i=1 ; i<= tal1 ; i++){
+var child = document.createElement("p");
+
+if (i% tal2== 0 && i% tal3== 0){
+result = "Bish-Bosh" ;
+child.setAttribute("class","bishBosh");
+
+} else if (i % tal2== 0){
+
+result = "Bish" ;
+child.setAttribute("class","bish");
+
+} else if (i% tal3== 0) {
+result = "Bosh" ;
+child.setAttribute("class","bosh");
+} else {
+result = i ;
+}
+child.textContent= result ;
+document.getElementById("result").appendChild(child);
+}
+        
+
+           
+        
+           }
+        
+        </script>
+  
+    
+</body>
+</html>
