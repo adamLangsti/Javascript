@@ -18,7 +18,7 @@
 
          <p>  Nummer 0 - 50 :</p>
       <input type="range" placeholder="Select range" id="send1" min="0" max="50" value="15" oninput="bishbosh()">
-      <p id="demo1"></p>
+      <input type="text" id ="demo1" value ="">
       
     
 
@@ -26,7 +26,7 @@
 
       <p>  Bish-nummer :</p>
     <input type="range" placeholder="Select range" id="send2" min="0" max="50" value="4" oninput="bishbosh()">
-    <p id="demo2"></p>
+    <input type="text" id ="demo2" value ="">
    
     
 
@@ -34,7 +34,7 @@
 
 <p>  Bosh-nummer  :</p>
 <input type="range" placeholder="Select range" id="send3" min="0" max="50" value="3" oninput="bishbosh()">
-<p id="demo3"></p>
+<input type="text" id ="demo3" value ="">
 
 <br><br>
 
@@ -42,7 +42,6 @@
 
 
 <p id="result"></p>
-
 
 
 
@@ -57,9 +56,9 @@
         var tal3 = parseInt(document.getElementById("send3").value);
 
         
-        document.getElementById("demo1").innerHTML=tal1;
-        document.getElementById("demo2").innerHTML=tal2;
-        document.getElementById("demo3").innerHTML=tal3;
+        document.getElementById("demo1").value=tal1;
+        document.getElementById("demo2").value=tal2;
+        document.getElementById("demo3").value=tal3;
 
 
         var result ="";

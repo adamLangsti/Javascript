@@ -1,9 +1,11 @@
 
-body {background-color: rgba(30, 8, 110, 0.815); color: white;}
+body {background-image: linear-gradient(to bottom right, #ff0000bd, rgb(253, 253, 0)); color: black; font-size: 20px;}
 
 #send1, #send2, #send3 {width: 20%;}
 
-#demo1, #demo2, #demo3 {font-size: 20px;}
+#demo1, #demo2, #demo3 {font-size: 20px; width: 5%; text-align: center;}
+
+
 
 
 
