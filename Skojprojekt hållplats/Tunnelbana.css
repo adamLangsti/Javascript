@@ -1,0 +1,62 @@
+body{background-color: aliceblue; margin: 5%; color:white;}
+
+#klass2 {font-family: 'Archivo', sans-serif; padding-bottom: 5%; text-align: center;}
+
+#innehåll {text-align: left; color: rgb(0, 0, 0); font-size:15px; border:1px solid; margin: auto;
+  width:50%; font-family: 'Archivo', sans-serif;
+  list-style:none ;}
+
+span {text-decoration: underline; color: rgb(0, 0, 0); font-size: 20px;}
+
+#knapp {margin:auto; display: block; width: 25%; height: 40px; font-size: 20px; font-family: 'Archivo', sans-serif;
+vertical-align: text-bottom; color: rgb(0, 0, 0);}
+
+#overhead {text-align: center; font-family: 'Archivo', sans-serif; color: white; font-size: 30px;
+  font-family: 'Archivo', sans-serif; background-color: #00aeef; overflow: hidden; position: fixed;
+top: 0; width: 100%; right: 0;}
+
+#fotnot {text-align: center; font-size: 15px; background-color: #00aeef; font-family: 'Archivo', sans-serif;
+padding: 1%; color: white; position: fixed; left: 0; bottom: 0; width: 100%;}
+
+#subway {width: 27%; height: 100%; float: left; margin-top: -40%; margin-left: -50px; position: static;}
+
+#subway1 {width: 27%; height: 100%; float: right; margin-top:-40%; margin-right: -50px; position: static;}
+
+.flex-container {
+    font-family: 'Raleway', sans-serif;
+      display: flex;
+      height: 100px;
+      flex-wrap: wrap;
+      align-content: space-between;
+      padding: 5px;
+      width: 100%;
+      justify-content: center;
+      
+    }
+
+    .flex-container > div {
+        background-color: #00aeef;
+        width: 100px;
+        margin: 1 auto;
+        text-align: center;
+        line-height: 40px;
+        font-size: 50px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        
+    
+      }
+
+      .flex-container > div#minut{
+        margin:0;
+    
+    }
+    .flex-container > div > .siffra{
+        margin: 0;
+      grid-row: 2;
+    
+        
+    }
+
+
+
