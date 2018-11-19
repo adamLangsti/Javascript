@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <header id="overhead">Stockholms tunnelbana</header><br>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Skolarbete</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="tunnelbana.css" />
+    <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
+    <meta http-equiv="refresh" content="60">
+
+
+</head>
+<!--Clock starts when page is loaded-->
+
+<body onload="startTime()">
+    <div class="flex-container">
+        <div id="timme">
+            <p class="siffra" id="ett"></p>
+        </div>
+        <div id="minut">
+            <p class="siffra" id="tva"></p>
+        </div>
+        <div id="sekund">
+            <p class="siffra" id="tre"></p>
+        </div>
+    </div>
+
+
+    <div id="innehåll">
+
+        <h2 id="klass2">Avgångstider Slussen:</h2>
+    </div><br>
+    <button id="knapp" onclick="myFunction()"><b>Uppdatera resor</b></button>
+    <!--Refresh button-->
+
+    <img src="substation.jpg" img id="subway">
+    <img src="substation1.jpg" img id="subway1">
+    <!--Train img upload-->
+
+
+
+
+    <!--Script for trains -->
+    <script>
+        function createNode(element) {
+            return document.createElement(element);
+        }
+
+        function append(parent, el) {
+            return parent.appendChild(el);
+        }
+        function myFunction() {
+            window.location.reload();
+        }
+        const ul = document.getElementById('innehåll');
+        const url = 'https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/realtimedeparturesV4.json?key=ca790bc146ef4522802ba572b8cc51fb&siteid=9192&timewindow=15';
+        fetch(url)
+            .then((resp) => resp.json())
+            .then(function (data) {
+                let departures = data.ResponseData.Metros;
+                return departures.map(function (departure) {
+                    let li = createNode('li'),
+                        span = createNode('span');
+
+                    var walkingtime = 5;
+                    if (departure.DisplayTime == "Nu") {
+                        departure.DisplayTime = "0 min";
+                    }
+                    var dt = departure.DisplayTime.replace(" min", "");
+                    dt = dt - walkingtime;
+                    if (dt > 0) {
+                        span.innerHTML += `${departure.LineNumber  +": &nbsp     "+departure.GroupOfLine  +"  &nbsp"+ dt  + " min" + ": &nbsp "+departure.Destination}`;
+                        append(li, span);
+                        append(ul, li);
+
+                    }
+
+
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('ett').innerHTML = h;
+            document.getElementById('tva').innerHTML = m;
+            document.getElementById('tre').innerHTML = s;
+
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i }; return i;
+        }
+    </script>
+    <!-- script for clock-->
+
+    <div id="txt">
+    </div>
+
+    </script><br>
+
+
+
+    <footer id="fotnot">Stockholm SL &copy</footer>
+</body>
+
+
+</html>
